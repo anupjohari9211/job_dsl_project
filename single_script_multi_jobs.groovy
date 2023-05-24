@@ -2,8 +2,7 @@ listView('My New View') {
     description('This is a new view')
     filterBuildQueue()
     filterExecutors()
-
-    jobs('JobA', 'JobB', 'JobC')
+    jobNames('JobA', 'JobB', 'JobC')
 }
 
 job('JobA') {
