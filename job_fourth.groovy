@@ -6,7 +6,7 @@ job('job-4') {
     }
 
     publishers {
-        downstream(('job-5')
+        downstream('job-5')
         }
     }
 
