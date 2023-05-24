@@ -5,6 +5,8 @@ listView('My New View') {
     jobs {
         regex('.*')  // Include all jobs in the view
     }
+}
+
 job('JobA') {
     steps {
         shell('echo "Running Job A"')
