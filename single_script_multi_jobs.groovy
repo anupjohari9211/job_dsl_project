@@ -8,7 +8,7 @@ listView('My New View') {
                 // Build steps for Job A
                 shell('echo "Running Job A"')
                 shell('echo "Step 2"')
-			}
+	    }
             publishers {
                 downstream('JobB')
                 }
@@ -33,6 +33,7 @@ listView('My New View') {
                 shell('echo "Step 1"')
                 shell('echo "Step 2"')
                 shell('echo "Step 3"')
+	    	}
             }
         }
     columns {
