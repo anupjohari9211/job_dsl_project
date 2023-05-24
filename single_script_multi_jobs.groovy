@@ -8,7 +8,11 @@ listView('My New View') {
                 // Build steps for Job A
                 shell('echo "Running Job A"')
                 shell('echo "Step 2"')
-	    }
+			}
+            publishers {
+                downstream('JobB')
+                }
+            }
         }
         job('JobB') {
             steps {
@@ -18,8 +22,7 @@ listView('My New View') {
                 shell('echo "Step 2"')
             }
             publishers {
-                downstream('JobC') {
-                    // Define downstream relationship between Job B and Job C
+                downstream('JobC')
                 }
             }
         }
