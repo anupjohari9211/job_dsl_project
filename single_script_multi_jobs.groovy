@@ -9,11 +9,6 @@ listView('My New View') {
                 shell('echo "Running Job A"')
                 shell('echo "Step 2"')
 	    }
-            publishers {
-                downstream('JobB') {
-                    // Define downstream relationship between Job A and Job B
-                }
-            }
         }
         job('JobB') {
             steps {
