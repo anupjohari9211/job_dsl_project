@@ -3,7 +3,7 @@ listView('My New View') {
     filterBuildQueue()
     filterExecutors()
     jobs {
-        regex('.*')  // Include all jobs in the view
+        regex('.Job*')  // Include all jobs in the view
     }
 }
 
