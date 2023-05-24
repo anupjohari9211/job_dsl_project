@@ -6,8 +6,7 @@ job('job-4') {
     }
 
     publishers {
-        downstreamParameterized {
-            trigger('job-5')
+        downstream(('job-5')
         }
     }
 
