@@ -3,12 +3,8 @@ listView('My New View') {
     filterBuildQueue()
     filterExecutors()
     jobs {
-        name('JobA')
-        name('JobB')
-        name('JobC')
+        regex('.*')  // Include all jobs in the view
     }
-}
-
 job('JobA') {
     steps {
         shell('echo "Running Job A"')
