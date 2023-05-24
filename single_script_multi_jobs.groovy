@@ -1,4 +1,4 @@
-listView('My New View') {
+listView('multi-job-view') {
     description('This is a new view')
 
     filterBuildQueue()
