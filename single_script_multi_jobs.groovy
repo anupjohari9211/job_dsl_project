@@ -33,7 +33,6 @@ listView('My New View') {
                 shell('echo "Step 1"')
                 shell('echo "Step 2"')
                 shell('echo "Step 3"')
-	    	}
             }
         }
     columns {
