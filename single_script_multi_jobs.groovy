@@ -35,7 +35,6 @@ listView('My New View') {
                 shell('echo "Step 3"')
             }
         }
-    }
     columns {
         status()
         weather()
