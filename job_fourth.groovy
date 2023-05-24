@@ -1,3 +1,7 @@
+listView('Test-Jobs') {
+    description('This is a new view')
+    filterBuildQueue()
+    filterExecutors()
 job('job-4') {
     description('This is an example DSL job-4')
 
@@ -9,4 +13,13 @@ job('job-4') {
         downstream(('job-5')
         }
     }
+        columns {
+        status()
+        weather()
+        name()
+        lastSuccess()
+        lastFailure()
+        lastDuration()
+    }
+}
 
