@@ -1,4 +1,4 @@
-listView('Contnet Studio CC Flow') {
+listView('CC Flow') {
   description('This is a new CC view')
   filterBuildQueue()
   filterExecutors()
@@ -46,16 +46,16 @@ listView('Contnet Studio CC Flow') {
       // Build Environment
       wrappers {
         maskPasswords()
+      }
+
+      // Build Steps
+      steps {
         regexes {
           regex {
             pattern('secret.*')
             mask('******')
           }
         }
-      }
-
-      // Build Steps
-      steps {
         shell('java -server -classpath ".:/opt/mlp/content-studio/lib/machine-learning-csod-cluster-computation-jar-0.0.1-SNAPSHOT-allinone.jar:/opt/mlp/library-loader/resources/" com.csod.pathshala.library.ces.CesLibraryCsvExtractorMain -c ${clientName} -e ces_prod_latest -k ${key_store_passwd} -n ${environment} -f ${ingestionBucket} -g true')
       }
 
@@ -102,16 +102,16 @@ listView('Contnet Studio CC Flow') {
       // Build Environment
       wrappers {
         maskPasswords()
+      }
+
+      // Build Steps
+      steps {
         regexes {
           regex {
             pattern('secret.*')
             mask('******')
           }
         }
-      }
-
-      // Build Steps
-      steps {
         shell('java -server -classpath ".:/opt/mlp/content-studio/lib/machine-learning-csod-cluster-computation-jar-0.0.1-SNAPSHOT-allinone.jar:/opt/mlp/library-loader/resources/" com.csod.pathshala.library.ces.ContentStudioSubscriptionExtractorMain -c ${clientName} -e ces_prod_latest -k ${key_store_passwd} -n ${environment} -f ${ingestionBucket} -g true')
       }
 
@@ -154,16 +154,16 @@ listView('Contnet Studio CC Flow') {
       // Build Environment
       wrappers {
         maskPasswords()
+      }
+
+      // Build Steps
+      steps {
         regexes {
           regex {
             pattern('secret.*')
             mask('******')
           }
         }
-      }
-
-      // Build Steps
-      steps {
         shell('echo "Running Job C"')
         shell('sh /content-studio-v2/cc/scripts/A2_CES_CORP_LO_CSV_LIBRARY_LOADER_MAIN.sh')
       }
