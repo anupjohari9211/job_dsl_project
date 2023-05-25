@@ -50,12 +50,6 @@ listView('CC Flow') {
 
       // Build Steps
       steps {
-        regexes {
-          regex {
-            pattern('secret.*')
-            mask('******')
-          }
-        }
         shell('java -server -classpath ".:/opt/mlp/content-studio/lib/machine-learning-csod-cluster-computation-jar-0.0.1-SNAPSHOT-allinone.jar:/opt/mlp/library-loader/resources/" com.csod.pathshala.library.ces.CesLibraryCsvExtractorMain -c ${clientName} -e ces_prod_latest -k ${key_store_passwd} -n ${environment} -f ${ingestionBucket} -g true')
       }
 
@@ -106,12 +100,6 @@ listView('CC Flow') {
 
       // Build Steps
       steps {
-        regexes {
-          regex {
-            pattern('secret.*')
-            mask('******')
-          }
-        }
         shell('java -server -classpath ".:/opt/mlp/content-studio/lib/machine-learning-csod-cluster-computation-jar-0.0.1-SNAPSHOT-allinone.jar:/opt/mlp/library-loader/resources/" com.csod.pathshala.library.ces.ContentStudioSubscriptionExtractorMain -c ${clientName} -e ces_prod_latest -k ${key_store_passwd} -n ${environment} -f ${ingestionBucket} -g true')
       }
 
@@ -158,12 +146,6 @@ listView('CC Flow') {
 
       // Build Steps
       steps {
-        regexes {
-          regex {
-            pattern('secret.*')
-            mask('******')
-          }
-        }
         shell('echo "Running Job C"')
         shell('sh /content-studio-v2/cc/scripts/A2_CES_CORP_LO_CSV_LIBRARY_LOADER_MAIN.sh')
       }
