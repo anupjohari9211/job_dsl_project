@@ -1,4 +1,4 @@
-listView('CC Flow') {
+listView('Contnet Studio CC Flow') {
   description('This is a new CC view')
   filterBuildQueue()
   filterExecutors()
