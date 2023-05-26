@@ -1,27 +1,27 @@
 import hudson.model.*
+import javaposse.jobdsl.dsl.*
 
 def jobName = 'A1. CES_LIBRARY_CSV_EXTRACTOR_MAIN_FOR_PROD'
 def viewName = 'content-studio CC Flow'
 
 // Create a new view
-listView(viewName) {
+pipelineJob(viewName) {
     description('This is a new CC view')
-    filterBuildQueue()
-    filterExecutors()
+
+    definition {
+        cps {
+            script(readFileFromWorkspace('path/to/pipeline_script.groovy'))
+        }
+    }
 }
 
 // Create the multi-configuration job
-matrixProject(jobName) {
+jobDsl(jobName) {
     description('Load the Course details from CES database for given production portal')
 
     // Discard Old Builds
-    configure { project ->
-        project / 'properties' << 'jenkins.model.BuildDiscarderProperty' {
-            strategy {
-                numToKeepStr('4')
-                artifactNumToKeepStr('4')
-            }
-        }
+    wrappers {
+        buildDiscarder(logRotator(numToKeepStr: '4', artifactNumToKeepStr: '4'))
     }
 
     // Source Code Management
@@ -46,15 +46,9 @@ matrixProject(jobName) {
 }
 
 // Add the job to the view
-def listView = Jenkins.instance.getView(viewName)
-listView.add(Jenkins.instance.getItem(jobName))
-
-// Specify the columns for the view
-def jobColumns = ['status', 'weather', 'name', 'lastSuccess', 'lastFailure', 'lastDuration']
-listView.configure { view ->
-    view / 'columns' {
-        jobColumns.each { column ->
-            "${column}"()
-        }
+view(viewName) {
+    jobColumns.each { column ->
+        column(column)
     }
+    job(jobName)
 }
