@@ -1,4 +1,4 @@
-listView('CC Flow') {
+listView('content-studio CC Flow') {
     description('This is a new CC view')
     filterBuildQueue()
     filterExecutors()
