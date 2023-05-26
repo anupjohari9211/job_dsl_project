@@ -14,7 +14,7 @@ listView('content studio cc flow') {
             }
         }
 
-        regex('A01. CES_LIBRARY_CSV_EXTRACTOR_MAIN_FOR_PROD')  // Include all jobs in the view
+        regex('A01\\. CES_LIBRARY_CSV_EXTRACTOR_MAIN_FOR_PROD')  // Include all jobs in the view
     }
 
     columns {
