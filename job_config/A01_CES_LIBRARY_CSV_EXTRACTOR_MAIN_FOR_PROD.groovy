@@ -1,5 +1,5 @@
 import hudson.model.*
-import javaposse.jobdsl.dsl.*
+import hudson.model.ListView.*
 
 def jobName = 'A1. CES_LIBRARY_CSV_EXTRACTOR_MAIN_FOR_PROD'
 def viewName = 'content-studio CC Flow'
@@ -9,9 +9,20 @@ listView(viewName) {
     description('This is a new CC view')
     filterBuildQueue()
     filterExecutors()
+  
+    // Specify the columns for the view
+    columns {
+        status()
+        weather()
+        name()
+        lastSuccess()
+        lastFailure()
+        lastDuration()
+    }
+}
 
 // Create the multi-configuration job
-jobDsl(jobName) {
+job(jobName) {
     description('Load the Course details from CES database for given production portal')
 
     // Discard Old Builds
@@ -41,9 +52,5 @@ jobDsl(jobName) {
 }
 
 // Add the job to the view
-view(viewName) {
-    jobColumns.each { column ->
-        column(column)
-    }
-    job(jobName)
-}
+def listView = Jenkins.instance.getView(viewName)
+listView.add(Jenkins.instance.getItem(jobName))
