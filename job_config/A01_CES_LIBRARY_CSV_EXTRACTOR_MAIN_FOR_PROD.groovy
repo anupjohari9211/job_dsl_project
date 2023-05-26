@@ -10,7 +10,7 @@ pipelineJob(viewName) {
 
     definition {
         cps {
-            script(readFileFromWorkspace('path/to/pipeline_script.groovy'))
+            script(readFileFromWorkspace('new_view_creation/view_pipeline_script.groovy'))
         }
     }
 }
