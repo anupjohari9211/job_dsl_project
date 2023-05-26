@@ -1,3 +1,7 @@
+def loadScriptFromSCM(String scmPath) {
+    def scmScript = readFileFromWorkspace(scmPath)
+    return evaluate(scmScript)
+}
 // Load the job creation configuration
 def jobConfig = load('job_config/*.groovy)
 
