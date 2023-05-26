@@ -3,7 +3,7 @@ def loadScriptFromSCM(String scmPath) {
     return evaluate(scmScript)
 }
 // Load the job creation configuration
-def jobConfig = load('job_config/*.groovy)
+def jobConfig = load('job_config/*.groovy')
 
 // Load the axes configuration
 def axesConfig = load('axes/axes_config.groovy')
