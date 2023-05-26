@@ -5,15 +5,10 @@ def jobName = 'A1. CES_LIBRARY_CSV_EXTRACTOR_MAIN_FOR_PROD'
 def viewName = 'content-studio CC Flow'
 
 // Create a new view
-pipelineJob(viewName) {
+listView(viewName) {
     description('This is a new CC view')
-
-    definition {
-        cps {
-            script(readFileFromWorkspace('new_view_creation/view_pipeline_script.groovy'))
-        }
-    }
-}
+    filterBuildQueue()
+    filterExecutors()
 
 // Create the multi-configuration job
 jobDsl(jobName) {
